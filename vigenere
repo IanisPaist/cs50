@@ -1,0 +1,132 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int shift(char c);
+int get_new_number(int k, int original_char);
+
+int main(int argc, string argv[])
+{
+    //if not exactly one keyword
+    if (argc != 2)
+    {
+        printf("Usage: ./vigenere keyword\n");
+        return 1;
+    }
+    //if not alphabetical
+    for (int i = 0, n = strlen(argv[1]); i < n; i++)
+    {
+        if (isalpha(argv[1][i]) == 0)
+        {
+            printf("Usage: ./vigenere keyword\n");
+            return 1;
+        }
+    }
+
+    //ask user for input
+    char *input_text = get_string("plaintext: ");
+    int n = strlen(input_text);
+    
+    char *result_text = malloc(n + 1); 
+    
+    //use key to shift all values
+    int j = 0;
+    //gettig key lenght
+    int key_length = strlen(argv[1]); 
+    for (int i = 0; i <= n; i++)
+    {
+        
+        //initialize j at zero and then should add +1 if letter is alphabetical
+        //add 0 if letter is not alphabetical
+        
+        if isalpha(input_text[i])
+        {
+            //getting the key for how much to shift
+            //ex plaintext = helloworld = 10 letters, key = dog = 3 letters
+            //so i = 0, j = 0; i = 1, j = 1; i = 2, j = 2;     
+            //   i = 3, j = 0, i = 4, j = 1; i = 5, j = 2;     5 % 3 = 2 ; 3 = strlen of key
+            //   i = 6, j = 0, i = 7, j = 1; i = 8, j = 2;     8 % 3 = 2 ; 3 = strlen of key
+            
+            int key = shift(argv[1][j]);        
+            
+            //shift
+            result_text[i] = get_new_number(key, input_text[i]);
+            
+            //add +1 to j
+            if (j < key_length - 1)
+            {
+                j += 1;
+            }
+            else
+            {
+                j = 0;
+            }
+        }    
+        else
+        {
+            result_text[i] = input_text[i];
+        }    
+    }  
+    printf("ciphertext: %s\n", result_text);
+    return 0;
+   
+    //
+    free(result_text);
+}
+
+
+int shift(char c)
+{
+    //capital 65-90, lower = 97-122
+    // so 65 and 97 = 0
+    // 66 and 98 = 1
+     
+    if (c < 91)
+    {
+        return c % 65; 
+    }
+    else
+    {
+        return c % 97;
+    }
+}
+
+
+int get_new_number(int k, int original_char)
+{
+    int real_k = 0;
+    if (k > 25)
+    {
+        int k_times = k / 25;
+        real_k = k - k_times * 25; //15
+    }
+        
+    else
+    {
+        real_k = k + 2;
+    }
+
+    int startnum = 0;
+    int endnum = 0;
+        
+    if islower(original_char)
+    {
+        startnum = 97;
+        endnum = 122;
+    }
+    else
+    {
+        startnum = 65;
+        endnum = 90;
+    }
+    
+    if (original_char + real_k - 2 > endnum)
+    {
+        return startnum - 1 + original_char + real_k - 2 - endnum;    
+    }
+    else
+    {
+        return original_char + real_k - 2;
+    }
+}
