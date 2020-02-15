@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Main</title>
+    </head>
+    <body>
+        <nav>
+            <ul id="navigation">
+                <li><a class = "active_nav" href="index.html">Main</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+
+        <header>
+            <b>This is the blog about finance and data analysis</b>
+        </header>
+
+        <div class = "centred left_column">
+            <div>
+                <p><a href ="article1.html">Data is the new oil</a></p>
+                    <p class = "description">
+                        description
+                    </p>
+                <p><a href ="article2.html">Article2</a></p>
+                <p>Article3</p>
+                <p>Article4</p>
+                <p>Article5</p>
+            </div>
+        </div>
+
+        <div class = "right_column">
+            <p>
+                <img id="myImg" src="myphoto.JPG" class="img-rounded" alt="myPhoto">
+            </p>
+
+            <form  onsubmit = "f()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Subcribe for newsletter</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+            </form>
+            <div class = "c">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+
+        <script>
+            function f() {
+                alert("Thanks")
+            }
+        </script>
+
+        <footer>
+            This is footer
+            All rights reserved
+        </footer>
+
+    </body>
+</html>

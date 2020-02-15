@@ -1,0 +1,122 @@
+
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Color for background */
+  body
+  {
+     /* font-family: "Tahoma", Geneva, sans-serif;*/
+      font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+      color: black;
+      background-color: #D6EAF8;
+      font-size: 18px;
+      font-weight: 400;
+  }
+  
+  
+  /* Style the header */
+  header {
+    padding: 55px;
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 50px;
+    height: 200px;
+  }
+  
+  
+  /* Style the navigation bar */
+  
+  nav ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #1A355B;
+      font-size: 14px;
+  }
+  
+  nav ul li {
+    float: left;
+  }
+  
+  nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .active_nav {
+      border-bottom-style: solid;
+      border-bottom-color: #45DCF6;
+  }
+  
+  .centred
+  {
+      text-align: center;
+  }
+  
+  .centred div p{
+      padding:10px;
+      margin: 5px;
+      overflow: hidden;
+  }
+  
+  .centred div p a{
+      font-size: 20px;
+  }
+  
+  article {
+      text-align: left;
+      margin-right: 150px;
+      margin-left: 150px;
+  }
+  
+  .left_column{
+      float: left;
+      width: 70%;
+  }
+  
+  .right_column{
+      float: left;
+      width: 23%;
+      margin: 5px;
+  }
+  
+  .description {
+      font-size: 15px;
+  }
+  
+  img{
+      width: 200px;
+      height: 250px;
+  }
+  
+  footer {
+      clear: both;
+      position: fixed;
+      background-color: #1A355B;
+      text-align: center;
+      padding: 10px;
+      left: 0;
+      bottom: 0;
+      color: white;
+      width: 100%;
+  }
+  
+  .c {
+      margin-bottom: 10px;
+  }
+  
+  .red_button{
+      background-color:red;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
