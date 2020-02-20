@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{%block title%}
+    Sell
+{%endblock%}
+
+{%block main%}
+    <form action="\sell" method="post">
+
+        <label for="options">Choose a stock</label>
+
+        <select id="options" class="form-control" name="symbol">
+            {%for ticker in tickers%}
+                <option>{{ ticker["ticker"]}}</option>
+            {%endfor%}
+        </select>
+
+        <input class="form-control" type="text" name="shares" placeholder="Quantity" size="4">
+
+        <button class="btn btn-primary">Sell</button>
+    </form>
+
+{%endblock%}

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title%}
+    Summary
+{%endblock%}
+
+{%block main%}
+    <table class="table table-hover table-sm">
+        <thead class="thead-dark">
+            <th>Ticker</th>
+            <th>Quantity</th>
+            <th>Current price</th>
+            <th>Total Value</th>
+        </thead>
+        <tbody>
+            {%for ticker in stocks%}
+                <tr>
+                    <td>{{ ticker["ticker"] }}</td>
+                    <td>{{ticker["SUM(quantity)"]}}</td>
+                    <td>{{ticker["current_price"]}}</td>
+                    <td>{{ticker["total_value"]}}</td>
+                </tr>
+            {%endfor%}
+                <tr>
+                    <td>Cash</td>
+                    <td></td>
+                    <td></td>
+                    <td>{{ cash }}</td>
+                </tr>
+
+                <tr>
+                    <td><b>Total</b></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>{{ total }}</b></td>
+                </tr>
+        </tbody>
+    </table>
+
+
+
+{%endblock%}

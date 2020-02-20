@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title%}
+    Summary
+{%endblock%}
+
+
+{%block main%}
+    <table class="table table-hover table-sm">
+        <thead class="thead-dark">
+            <th>Buy/Sell</th>
+            <th>Ticker</th>
+            <th>MktValue</th>
+            <th>Quantity</th>
+            <th>Date and Time</th>
+        </thead>
+        <tbody>
+            {%for t in transactions%}
+                <tr>
+                    {%if t["transType"] == 1%}
+                    <td>Buy</td>
+                    {%else%}
+                    <td>Sell</td>
+                    {% endif %}
+
+                    <td>{{ t["ticker"] }}</td>
+                    <td>{{ t["purch_value"] }}</td>
+                    <td>{{ t["quantity"] }}</td>
+                    <td>{{ t["time"] }}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+
+{%endblock%}
